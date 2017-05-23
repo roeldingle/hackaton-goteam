@@ -51,7 +51,7 @@ goteam.controller("myTeamController", function($scope, $http) {
 
     $http.get('http://straightarrowasset.com/test/api-test.php').
     success(function(data) {
-      $scope.team = eval(data);
+      $scope.team = data;
     }).
     error(function(data, status) {
       $scope.team = data;
