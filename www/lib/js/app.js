@@ -49,7 +49,7 @@ goteam.controller("SplitterController", function(){
 
 goteam.controller("myTeamController", function($scope, $http) {
 
-    $http.get('http://straightarrowasset.com/test/api-test.php').
+    $http.post('http://straightarrowasset.com/test/api-test.php').
     success(function(data) {
       $scope.team = eval(data);
     }).
