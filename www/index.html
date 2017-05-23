@@ -25,7 +25,7 @@
 		<ons-splitter-side side="left" width="80%" collapse swipeable>
 			<ons-page>
 				<!--nav user profile-->
-				<div style="background:#1e1e1e;padding: 20% 10px 0;height:10%;color:#fff">
+				<div style="background:#1e1e1e;padding: 10% 10px 10px;height:10%;color:#fff;margin-bottom:10px">
 					<div class="left" >
 				        <div class="profile-image" style="background: #673ab7;float:left;margin-right:10px">K</div>
 				      </div>
@@ -111,6 +111,7 @@
 			</ons-toolbar>
 			<p style="text-align: center; opacity: 0.6; padding-top: 20px;">
 				Swipe right to open the menu!
+				<button ng-click="splitter.showPicker()" tappable>Test</button>
 			</p>
 			
 			<!--speed dial-->
@@ -230,7 +231,7 @@
          <div style="margin: 10px;width:90%">
          	
      		<div>
-     			
+
      			<ons-list-item>
 					<ons-input id="username" modifier="underbar" placeholder="Firstname" float ng-model="page.fname" style="width:100%"></ons-input>
      			</ons-list-item>

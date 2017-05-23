@@ -49,7 +49,7 @@ goteam.controller("SplitterController", function(){
 
 goteam.controller("myTeamController", function($scope, $http) {
 
-    $http.post('http://straightarrowasset.com/test/api-test.php').
+    $http.get('http://straightarrowasset.com/test/api-test.php').
     success(function(data) {
       $scope.team = eval(data);
     }).
@@ -58,27 +58,9 @@ goteam.controller("myTeamController", function($scope, $http) {
     });
 
 
-    // this.showPicker = function() {
-    //     var options = {
-    //         date: new Date(),
-    //         mode: 'date'
-    //     };
-
-    //     function onSuccess(date) {
-    //         alert('Selected date: ' + date);
-    //     }
-
-    //     function onError(error) { // Android only
-    //         alert('Error: ' + error);
-    //     }
-
-    //     //var datePicker = new DatePicker();
-    //     datePicker.show(options, onSuccess, onError);
-    // }
-
-    $scope.test = function(){
+    this.test = function(){
       alert(33);
-    }
+    };
 
 
  });
