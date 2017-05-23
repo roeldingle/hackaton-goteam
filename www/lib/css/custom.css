@@ -1,0 +1,13 @@
+.profile-image {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid #EFEFEF;
+    line-height: 52px;
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    background-color: #9c27b0;
+}
+
+ons-input{width:100% !important;}

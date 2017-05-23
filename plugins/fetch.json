@@ -1,0 +1,26 @@
+{
+    "cordova-plugin-camera": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-camera"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-inline-datepicker": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-inline-datepicker"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-datepicker": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-datepicker"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}
