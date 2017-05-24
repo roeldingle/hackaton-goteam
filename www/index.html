@@ -2,19 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+
     <link rel="stylesheet" href="lib/onsen/css/onsenui.css"/>
     <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css"/>
     <link rel="stylesheet" href="lib/css/custom.css"/>
+	
+	<script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="lib/js/angular.js"></script>
+
     <script src="lib/onsen/js/onsenui.js"></script>
     <script src="lib/onsen/js/angular-onsenui.js"></script>
 
 
     <!--script-->
+    
+    <script src="lib/js/data.js"></script>
 	<script src="lib/js/app.js"></script>
-	<script>
-      
-    </script>
+
+	
 
   </head>
 
@@ -97,7 +102,7 @@
 	<!--end drawer  navigation-->
 	
 	<!--dashboard-->
-	<ons-template id="dashboard.html">
+	<ons-template id="dashboard.html" ng-controller="dashboardController">
 		<ons-page>
 			<ons-toolbar>
 				<div class="left">
@@ -110,7 +115,11 @@
 				</div>
 			</ons-toolbar>
 			<p style="text-align: center; opacity: 0.6; padding-top: 20px;">
-				Swipe right to open the menu!
+				<div style="border: 1px solid #ccc; width: 620px; float: right">
+				{{chartOptions}}
+				     <highchart id="chart1" config="chartConfig" ></highchart>
+				</div>
+
 				<button ng-click="splitter.showPicker()" tappable>Test</button>
 			</p>
 			
@@ -158,15 +167,11 @@
 
 		      <div class="left">
 		      	<ons-input type="checkbox" checked="checked"></ons-input>
-		        <div ng-click="splitter.load('view-team.html')" class="profile-image" style="background: {{member.theme}};margin:0 10px">{{member.name.substring(0, 1)}}</div>
+		        <div ng-click="splitter.viewDetail('view-team', team[$index])" class="profile-image" style="background: {{member.theme}};margin:0 10px">{{member.name.substring(0, 1)}}</div>
 		      </div>
-		      <div class="center" ng-click="splitter.load('view-team.html')">
+		      <div class="center" ng-click="splitter.viewDetail('view-team',team[$index])">
 		        <span class="list-item__title">{{member.name}}</span><span class="list-item__subtitle">{{member.email}}</span>
 		      </div>
-		      <!-- <div class="right">
-		      	<ons-input type="checkbox" id="check-1" ></ons-input>
-		      </div> -->
-		      
 		    </ons-list-item>
 		    <!--end members-->
 
@@ -181,7 +186,7 @@
 
 	<!--notification-->
 	<ons-template id="notification.html">
-	  <ons-page>
+	  <ons-page ng-controller="notificationController">
 	    <ons-toolbar>
 	      <div class="left">
 	        <ons-toolbar-button ng-click="mySplitter.left.open()">
@@ -196,46 +201,12 @@
 	    <div>
 
 			<!--notification-->
-			
-		    <ons-list-item  tappable>
+		    <ons-list-item   ng-repeat="notif in notification track by $index" tappable>
 	    	  <div class="left">
-		      	<ons-input type="checkbox" id="check-1" ></ons-input>
+		      	<ons-input type="checkbox" id="check-1" checked="checked" ></ons-input>
 		      </div>
-		      <div class="center" ng-click="splitter.load('view-notification.html')">
-		        <span class="list-item__title">Monthly hudle</span><span class="list-item__subtitle">2017-05-23</span>
-		      </div>
-		    </ons-list-item>
-		    <ons-list-item  tappable>
-	    	  <div class="left">
-		      	<ons-input type="checkbox" id="check-1" ></ons-input>
-		      </div>
-		      <div class="center" ng-click="splitter.load('view-notification.html')">
-		        <span class="list-item__title">Monthly hudle</span><span class="list-item__subtitle">2017-05-23</span>
-		      </div>
-		    </ons-list-item>
-		    <ons-list-item  tappable>
-	    	  <div class="left">
-		      	<ons-input type="checkbox" id="check-1" ></ons-input>
-		      </div>
-		      <div class="center" ng-click="splitter.load('view-notification.html')">
-		        <span class="list-item__title">Monthly hudle</span><span class="list-item__subtitle">2017-05-23</span>
-		      </div>
-		    </ons-list-item>
-		    <ons-list-item  tappable>
-	    	  <div class="left">
-		      	<ons-input type="checkbox" id="check-1" ></ons-input>
-		      </div>
-		      <div class="center" ng-click="splitter.load('view-notification.html')">
-		        <span class="list-item__title">Monthly hudle</span><span class="list-item__subtitle">2017-05-23</span>
-		      </div>
-		    </ons-list-item>
-
-		    <ons-list-item  tappable>
-	    	  <div class="left">
-		      	<ons-input type="checkbox" id="check-1" ></ons-input>
-		      </div>
-		      <div class="center" ng-click="splitter.load('view-notification.html')">
-		        <span class="list-item__title">Monthly hudle</span><span class="list-item__subtitle">2017-05-23</span>
+		      <div class="center" ng-click="splitter.viewDetail('view-notif', notification[$index])">
+		        <span class="list-item__title">{{notif.title}}</span><span class="list-item__subtitle">2017-05-23</span>
 		      </div>
 		    </ons-list-item>
 		    <!--end notification-->
@@ -265,6 +236,46 @@
 	        Settings
 	      </div>
 	    </ons-toolbar>
+		
+		<ons-list ng-init="cool = true; evenCooler = true; amazing = false">
+		    <ons-list-header>Change Password</ons-list-header>
+		    <ons-list-item>
+		
+		        <ons-input id="password" modifier="underbar" placeholder="Password" type="password" float ng-model="settings.password" style="width:100%"></ons-input>
+		   
+		    </ons-list-item>
+		    <ons-list-item>
+		  
+		        <ons-input id="repassword" modifier="underbar" placeholder="Re-Password" type="password" float ng-model="settings.repassword" style="width:100%"></ons-input>
+		  
+		    </ons-list-item>
+		  </ons-list>
+		
+		<div class="form">
+		  <ons-list ng-init="cool = true; evenCooler = true; amazing = false">
+		    <ons-list-header>Preference</ons-list-header>
+		    <ons-list-item>
+		      <div class="center">
+		        Day / Night : 
+		      </div>
+		      <div class="right">
+		        <ons-switch ng-model="cool"></ons-switch>
+		      </div>
+		    </ons-list-item>
+		    <ons-list-item>
+		      <div class="center">
+		        Notification: 
+		      </div>
+		      <div class="right">
+		        <ons-switch ng-model="evenCooler"></ons-switch>
+		      </div>
+		    </ons-list-item>
+		  </ons-list>
+		</div>
+
+		  <ons-fab position="bottom right" ng-click="splitter.load('add-team.html')">
+	      <ons-icon icon="fa-floppy-o"></ons-icon>
+	    </ons-fab>
 
 
 	  </ons-page>
@@ -273,6 +284,8 @@
 
 
 	<!--layouts-->
+
+	<!----------------------------------------------------------------------------------team-------------------------------------------------------------------------------------->
 	<!--add-team-->
 	<ons-template id="add-team.html">
 	  <ons-page>
@@ -290,6 +303,7 @@
          <div style="margin: 10px;width:90%">
          	
      		<div class="form">
+     			<ons-list-header>Input form</ons-list-header>
      			<ons-list-item>
 					<ons-input id="username" modifier="underbar" placeholder="Firstname" float ng-model="page.fname" style="width:100%"></ons-input>
      			</ons-list-item>
@@ -333,16 +347,16 @@
          	
      		<div class="form">
      			<ons-list-item>
-					<ons-input id="username" modifier="underbar" placeholder="Firstname" value="Koo" float ng-model="profile.fname" style="width:100%"></ons-input>
+					<ons-input id="username" modifier="underbar" placeholder="Firstname" float ng-model="detail.name" style="width:100%"></ons-input>
      			</ons-list-item>
      			<ons-list-item>
-					<ons-input id="lname" modifier="underbar" placeholder="Lastname" value="Vergara"  float ng-model="profile.lname" style="width:100%"></ons-input>
+					<ons-input id="lname" modifier="underbar" placeholder="Lastname" float ng-model="detail.email" style="width:100%"></ons-input>
      			</ons-list-item>
      			<ons-list-item>
-					<ons-input id="position" modifier="underbar" placeholder="Position" value="Web Developer Specialist 2" float ng-model="profile.position" style="width:100%"></ons-input>
+					<ons-input id="position" modifier="underbar" placeholder="Position" ng-model="detail.position" float style="width:100%"></ons-input>
      			</ons-list-item>
      			<ons-list-item>
-					<ons-input id="shift" modifier="underbar" placeholder="Shift" value="6am to 3pm" float ng-model="profile.shift"  style="width:100%"></ons-input>
+					<ons-input id="shift" modifier="underbar" placeholder="Shift"  float ng-model="detail.shift" style="width:100%"></ons-input>
      			</ons-list-item>
 
      		</div>
@@ -356,6 +370,83 @@
 	  </ons-page>
 	</ons-template>
 	<!--end view-team-->
+	<!----------------------------------------------------------------------------------end team-------------------------------------------------------------------------------------->
+
+
+		<!--layouts-->
+
+	<!----------------------------------------------------------------------------------team-------------------------------------------------------------------------------------->
+	<!--add-notif-->
+	<ons-template id="add-notif.html">
+	  <ons-page>
+	    <ons-toolbar>
+	      <div class="left">
+	        <ons-toolbar-button ng-click="splitter.load('myteam.html')">
+	          <ons-icon icon="fa-angle-left"></ons-icon>
+	        </ons-toolbar-button>
+	      </div>
+	      <div class="center">
+	        Add Notification
+	      </div>
+	    </ons-toolbar>
+
+         <div style="margin: 10px;width:90%">
+         	
+     		<div class="form">
+     			<ons-list-item>
+					<ons-input id="subject" modifier="underbar" placeholder="Subject" float ng-model="notification.subject" style="width:100%"></ons-input>
+     			</ons-list-item>
+     			<ons-list-item>
+					<ons-input id="message" modifier="underbar" placeholder="Message" float ng-model="page.lname" style="width:100%"></ons-input>
+     			</ons-list-item>
+
+     		</div>
+
+
+		    <ons-fab position="bottom right" ng-click="splitter.load('add-team.html')">
+		      <ons-icon icon="fa-floppy-o"></ons-icon>
+		    </ons-fab>
+		  </div>
+
+	  </ons-page>
+	</ons-template>
+	<!--end add-notif-->
+
+	<!--view-notif-->
+	<ons-template id="view-notif.html">
+	  <ons-page>
+	    <ons-toolbar>
+	      <div class="left">
+	        <ons-toolbar-button ng-click="splitter.load('notification.html')">
+	          <ons-icon icon="fa-angle-left"></ons-icon>
+	        </ons-toolbar-button>
+	      </div>
+	      <div class="center">
+	        View Notification
+	      </div>
+	    </ons-toolbar>
+
+	    <div style="margin: 10px;width:90%">
+         	
+     		<div class="form">
+     			<ons-list-item>
+					<!-- <ons-input id="username" modifier="underbar" placeholder="Title" float ng-model="detail.name" style="width:100%"></ons-input> -->
+					<h3 style="margin-right:10px;"">{{detail.title}}</h3>
+					<small style="font-size:14px">({{detail.date}})</small>
+     			</ons-list-item>
+     			<ons-list-item>
+					<!-- <ons-input id="position" modifier="underbar" placeholder="Message" ng-model="detail.position" float style="width:100%"></ons-input> -->
+					{{detail.message}}
+     			</ons-list-item>
+
+     		</div>
+
+		  </div>
+
+	  </ons-page>
+	</ons-template>
+	<!--end view-notif-->
+	<!----------------------------------------------------------------------------------end team-------------------------------------------------------------------------------------->
 
 
 	<!--dialog-->

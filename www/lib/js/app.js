@@ -1,7 +1,8 @@
-var goteam = ons.bootstrap('goteam',[]);
+ons.bootstrap()
+  .controller('SplitterController', function($scope) {
+    $scope.member = [];    
 
-goteam.controller("SplitterController", function(){
-	this.load = function(page) {
+    this.load = function(page) {
       mySplitter.content.load(page)
         .then(function() {
           mySplitter.left.close();
@@ -21,48 +22,61 @@ goteam.controller("SplitterController", function(){
     }.bind(this);
 
 
-    this.showPicker = function() {
-        var options = {
-            date: new Date(),
-            mode: 'date'
-        };
+    /*global page viewing*/
+    this.viewDetail = function(page, data){
+      this.load(page+'.html');
 
-        function onSuccess(date) {
-            alert('Selected date: ' + date);
-        }
-
-        function onError(error) { // Android only
-            alert('Error: ' + error);
-        }
-
-        //var datePicker = new DatePicker();
-        datePicker.show(options, onSuccess, onError);
+      console.log(data);
+      $scope.detail = data;
     }
+  })
+
+  .controller("dashboardController", function($scope) {
+      var prices = {data: [60.5, 55.7]}; // Static data works
+
+        $scope.chartConfig = {
+            options : {
+                chart : {
+                    type : 'line'
+                }
+            },
+            series : [ prices ],
+            title : {
+                text : 'Monthly Book Prices'
+            },
+
+            loading : false
+        }
+
+   })
+  .controller("myTeamController", function($scope, $http) {
+
+    // $http.get('http://straightarrowasset.com/test/api-test.php').
+    // success(function(data) {
+    //   $scope.team = data;
+      
+    // }).
+    // error(function(data, status) {
+    //   $scope.team = data;
+    // });
+
+    $scope.team = team;
+
 
     this.test = function(){
       alert(33);
     }
+  })
+  .controller("notificationController", function($scope, $http) {
 
-});
+    $scope.notification = notification;
 
-
-
-goteam.controller("myTeamController", function($scope, $http) {
-
-    $http.get('http://straightarrowasset.com/test/api-test.php').
-    success(function(data) {
-      $scope.team = data;
-      
-    }).
-    error(function(data, status) {
-      $scope.team = data;
-    });
 
 
     this.test = function(){
       alert(33);
     };
+  });
 
 
- });
 
