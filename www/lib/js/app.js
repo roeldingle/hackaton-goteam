@@ -1,6 +1,13 @@
 ons.bootstrap()
+  .controller("loginController", function($scope) {
+      $scope.login = function(id, password){
+        $scope.ons.screen.presentPage('pages/login.html');
+    }
+
+   })
   .controller('SplitterController', function($scope) {
-    $scope.member = [];    
+    $scope.member = [];  
+    $scope.dialogMessage = '';  
 
     this.load = function(page) {
       mySplitter.content.load(page)

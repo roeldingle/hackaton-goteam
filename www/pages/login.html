@@ -1,0 +1,24 @@
+<ons-page ng-controller="loginCtrl">
+
+    <div style="margin: 10% 10px 0 10px;width:90%;text-align:center">
+        <img src="images/goteam.png" style="width:220px;margin-bottom:50px" alt="">
+        <div class="form">
+            <ons-list-item>
+                <ons-input id="email" modifier="underbar" placeholder="Email" float ng-model="user.email" style="width:100%"></ons-input>
+            </ons-list-item>
+            <ons-list-item>
+                <ons-input id="password" modifier="underbar" placeholder="Lastname" float ng-model="user.password" style="width:100%"></ons-input>
+            </ons-list-item>
+
+            <div style="text-align: center;margin-top: 20%;">
+                <ons-button modifier="large" ng-click="openProtectedPage()">
+                    Sign In 
+                </ons-button>
+
+                <ons-button modifier="large" ng-click="openProtectedPage()" style="margin-top:10px;background:#dd4b39">
+                    <ons-icon icon="fa-google" style=""></ons-icon>&nbsp;
+                    Google Sign In
+                </ons-button>
+            </div>
+    </div>
+</ons-page>
