@@ -5,6 +5,7 @@ goteam.factory ('Data', function(){
     $data.chart_type = 'bar';
     $data.team = team;
     $data.notification = notification;
+    $data.attendance = attendance;
     $data.theme = 'dark';
     return $data;
 });
@@ -13,6 +14,7 @@ goteam.controller('SplitterController', function($scope, Data) {
     $scope.member = [];  
     $scope.user = []; 
     $scope.theme = Data.theme;
+    $scope.attendance = Data.attendance;
     $scope.chart_type = Data.chart_type;
     $scope.dialogMessage = '';
 
@@ -65,10 +67,7 @@ goteam.controller('SplitterController', function($scope, Data) {
 
     }
 
-    this.transferPage = function(url){
-      alert(url);
-      myNavigator.pushPage(url);
-    }
+  
 });
 
 goteam.controller('loginCtrl', function($scope) {

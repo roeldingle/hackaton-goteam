@@ -113,3 +113,27 @@ var notification = [
 		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
 	}
 ];
+
+var attendance = [
+
+	{
+		date:"2017-05-24",
+		status: "On-time",
+		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
+	},
+	{
+		date:"2017-05-23",
+		status: "On-time",
+		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
+	},
+	{
+		date:"2017-05-22",
+		status: "Late",
+		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
+	},
+	{
+		date:"2017-05-21",
+		status: "On-leave",
+		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
+	},
+];
