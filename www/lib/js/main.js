@@ -5,6 +5,7 @@ goteam.factory ('Data', function(){
     $data.chart_type = 'bar';
     $data.team = team;
     $data.notification = notification;
+    $data.theme = 'dark';
     return $data;
 });
 
@@ -13,6 +14,7 @@ goteam.controller('SplitterController', function($scope, Data) {
     $scope.user = []; 
     $scope.dialogMessage = '';  
 
+    $scope.theme = Data.theme;
     $scope.chart_type = Data.chart_type;
 
     this.load = function(page) {
