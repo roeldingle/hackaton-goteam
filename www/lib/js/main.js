@@ -12,10 +12,9 @@ goteam.factory ('Data', function(){
 goteam.controller('SplitterController', function($scope, Data) {
     $scope.member = [];  
     $scope.user = []; 
-    $scope.dialogMessage = '';  
-
     $scope.theme = Data.theme;
     $scope.chart_type = Data.chart_type;
+    $scope.dialogMessage = '';
 
     this.load = function(page) {
       mySplitter.content.load(page)
@@ -24,7 +23,8 @@ goteam.controller('SplitterController', function($scope, Data) {
         });
     };
 
-    this.showDialog = function() {
+    this.showDialog = function(test) {
+
       if (this.dialog) {
         this.dialog.show();
       } else {
@@ -45,6 +45,29 @@ goteam.controller('SplitterController', function($scope, Data) {
 
     this.changeChart = function(type){
         $scope.chart_type = type;
+    }
+
+    this.modalDisplay = function(text, confirm, refresh){
+      
+      alertDialog.show();
+      $('.alert-dialog-content').html(text);
+
+      $('.alert-btn-confirm').hide();
+      if(confirm){
+        $('.alert-btn-confirm').show();
+      }
+
+      $('.alert-btn-confirm-refresh').hide();
+      if(refresh){
+        $('.alert-btn-confirm-refresh').show();
+      }
+      
+
+    }
+
+    this.transferPage = function(url){
+      alert(url);
+      myNavigator.pushPage(url);
     }
 });
 

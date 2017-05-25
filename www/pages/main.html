@@ -63,7 +63,7 @@
           </ons-list-item>
           <!--end notification-->
           <!--logout-->
-          <ons-list-item ng-click="alertDialog.show()" ng-init="dialogMessage = 'Proceed to logout now?';" tappable>
+          <ons-list-item ng-click="splitter.modalDisplay('Proceed to logout?', false, true)"  tappable>
             <ons-icon icon="fa-sign-out"></ons-icon>&nbsp;
             Logout
           </ons-list-item>
@@ -115,7 +115,7 @@
 					<ons-icon icon="fa-bar-chart" ng-click="splitter.changeChart('bar')"></ons-icon>
 				</ons-speed-dial-item>
 				<ons-speed-dial-item>
-					<ons-icon icon="fa-calendar"></ons-icon>
+					<ons-icon icon="fa-calendar" ng-click="dateModal.show()"></ons-icon>
 				</ons-speed-dial-item>
 			</ons-speed-dial>
 			<!--end speed dial-->
@@ -194,7 +194,7 @@
 		<ons-fab position="bottom right" ng-click="splitter.load('add-notif.html')">
 	      <ons-icon icon="md-plus"></ons-icon>
 	    </ons-fab>
-	    <ons-fab position="bottom right" style="right: 80px;" ng-click="splitter.load('add-team.html')">
+	    <ons-fab position="bottom right" style="right: 80px;" ng-click="splitter.modalDisplay('Are you sure you want to remove selected items?', true)">
 	      <ons-icon icon="fa-trash"></ons-icon>
 	    </ons-fab>
 
@@ -266,7 +266,7 @@
 		  </ons-list>
 		</div>
 
-		  <ons-fab position="bottom right" ng-click="myModal.show()">
+		  <ons-fab position="bottom right" ng-click="splitter.modalDisplay('Settings saved successfully', false)">
 	      <ons-icon icon="fa-floppy-o"></ons-icon>
 	    </ons-fab>
 
@@ -314,7 +314,7 @@
      		</div>
 
 
-		    <ons-fab position="bottom right" ng-click="myModal.show()">
+		    <ons-fab position="bottom right" ng-click="splitter.modalDisplay('Saved member successfully', false)">
 		      <ons-icon icon="fa-floppy-o"></ons-icon>
 		    </ons-fab>
 		  </div>
@@ -356,7 +356,7 @@
      		</div>
 
 
-		    <ons-fab position="bottom right" ng-click="myModal.show()">
+		    <ons-fab position="bottom right" ng-click="splitter.modalDisplay('Edit member successfully', false)">
 		      <ons-icon icon="fa-floppy-o"></ons-icon>
 		    </ons-fab>
 		  </div>
@@ -375,7 +375,7 @@
 	  <ons-page>
 	    <ons-toolbar>
 	      <div class="left">
-	        <ons-toolbar-button ng-click="splitter.load('myteam.html')">
+	        <ons-toolbar-button ng-click="splitter.load('notification.html')">
 	          <ons-icon icon="fa-angle-left"></ons-icon>
 	        </ons-toolbar-button>
 	      </div>
@@ -387,6 +387,7 @@
          <div style="margin: 10px;width:90%">
          	
      		<div class="form">
+     			<ons-list-header>Input form</ons-list-header>
      			<ons-list-item>
 					<ons-input id="subject" modifier="underbar" placeholder="Subject" float ng-model="notification.subject" style="width:100%"></ons-input>
      			</ons-list-item>
@@ -397,7 +398,7 @@
      		</div>
 
 
-		    <ons-fab position="bottom right" ng-click="splitter.load('add-team.html')">
+		    <ons-fab position="bottom right" ng-click="splitter.modalDisplay('Saved successfully', false)">
 		      <ons-icon icon="fa-floppy-o"></ons-icon>
 		    </ons-fab>
 		  </div>
@@ -445,33 +446,41 @@
 
 	<!--dialog-->
 	<ons-alert-dialog var="alertDialog">
-		<div class="alert-dialog-title">Logout</div>
 		<div class="alert-dialog-content">
-			{{ dialogMessage }}
+			
 		</div>
 		<div class="alert-dialog-footer">
-			<button class="alert-dialog-button" ng-click="alertDialog.hide()">CANCEL</button>
-			<button class="alert-dialog-button" ng-click="alertDialog.hide()">YES</button>
-			
+			<button class="alert-dialog-button" ng-click="alertDialog.hide()">CLOSE</button>
+			<button class="alert-btn-confirm alert-dialog-button" style="display:none" ng-click="alertDialog.hide()" >YES</button>
+			<button class="alert-btn-confirm-refresh alert-dialog-button" style="display:none" onclick="location.reload();" >YES</button>
 		</div>
 	</ons-alert-dialog>
 	<!--end dialog-->
 
-
+	<!--saved successfully-->
 	<ons-modal var="myModal" direction="up">
-  <div >
-  	 <ons-card>
-	    <div class="content" style="font-size: 20px;margin: 20px 0;text-align: center">
-	      <div>
-	        Saved successfully
+	<div >
+		 <ons-card>
+	    <div class="content" style="font-size: 18px;margin: 20px 0;text-align: center">
+	      <div class="dialogMessage">
+	      
 	      </div>
 	    </div>
 	    <div style="text-align: center">
 	    	<ons-button ng-click="myModal.hide()" >Close</ons-button>
 	    </div>
 	  </ons-card>
-  </div>
-</ons-modal>
+	</div>
+	</ons-modal>
+	<!--end saved successfully-->
+
+	<!--saved successfully-->
+	<ons-modal var="dateModal" direction="up">
+		<div>
+		    <img src="images/calendar.jpg" ng-click="dateModal.hide()">
+		</div>
+	</ons-modal>
+	<!--end saved successfully-->
 
 
 	<!--end layouts-->
