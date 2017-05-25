@@ -67,7 +67,6 @@ goteam.controller('SplitterController', function($scope, Data) {
 
     }
 
-  
 });
 
 goteam.controller('loginCtrl', function($scope) {
