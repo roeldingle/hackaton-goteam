@@ -489,12 +489,38 @@
 	<ons-alert-dialog var="attendanceDialog">
 		<div class="alert-dialog-content">
 			Reported on time today?
+
+			<ons-list>
+			    <ons-list-item tappable>
+			      <label class="left">
+			        <ons-input name="color" type="radio" input-id="radio-1"  value="yes"></ons-input>
+			      </label>
+			      <label for="radio-1" class="center">
+			        Yes
+			      </label>
+			    </ons-list-item>
+			    <ons-list-item tappable>
+			      <label class="left">
+			        <ons-input name="color" type="radio" input-id="radio-1"  value="no"></ons-input>
+			      </label>
+			      <label for="radio-1" class="center">
+			        No
+			      </label>
+			    </ons-list-item>
+			    <ons-list-item tappable>
+			      <label class="left">
+			        <ons-input name="color" type="radio" input-id="radio-2"  value="onleave"></ons-input>
+			      </label>
+			      <label for="radio-2" class="center">
+			        On-leave
+			      </label>
+			    </ons-list-item>
+			  </ons-list>
 		</div>
-		<div class="alert-dialog-footer">
-			<button class="alert-dialog-button" onclick="attendanceDialog.hide()" >On-leave</button>
-			<button class="alert-dialog-button" ng-click="attendanceDialog.hide()" >NO</button>
-			<button class="alert-dialog-button" ng-click="attendanceDialog.hide()">YES</button>
-		</div>
+		<div class="alert-dialog-footer" style="margin: 10px 0 20px;text-align: right;">
+			<ons-button ng-click="attendanceDialog.hide()" >
+                    Submit
+                </ons-button>
 	</ons-alert-dialog>
 	<!--end dialog-->
 	<!--view-notif-->
