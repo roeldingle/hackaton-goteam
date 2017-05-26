@@ -137,23 +137,6 @@ var attendance = [
 		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
 	},
 ];
-series: [{
-		showInLegend: false,
-		name: 'Attendance',
-		data: [19, 16, 18],
-	}, {
-		showInLegend: false,
-		name: 'Revenue',
-		data: [32, 40, 38]
-	},{
-		showInLegend: false,
-		name: 'NPS',
-		data: [20, 26, 28]
-	}, {
-		showInLegend: false,
-		name: 'Dynamics',
-		data: [9,10, 8]
-	}]
 
 var revenue = [
 
@@ -223,6 +206,27 @@ var revenue = [
 
 	}
 	
+];
+
+
+var nps = [
+
+	{
+		month:"May",
+		score:"4.6"
+	},
+	{
+		month:"April",
+		score:"4.2"
+	},
+	{
+		month:"March",
+		score:"3.8"
+	},
+	{
+		month:"February",
+		score:"3.9"
+	}
 ];
 
 

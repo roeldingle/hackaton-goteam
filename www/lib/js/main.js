@@ -21,6 +21,7 @@ goteam.factory ('Data', function(){
     $data.notification = notification;
     $data.attendance = attendance;
     $data.revenue = revenue;
+    $data.nps = nps;
     $data.theme = 'dark';
     return $data;
 });
@@ -132,4 +133,8 @@ goteam.controller("attendanceController", function($scope, $http, Data) {
 goteam.controller("revenueController", function($scope, $http, Data) {
   $scope.revenue = Data.revenue;
   console.log($scope.attendance);
+});
+
+goteam.controller("npsController", function($scope, $http, Data) {
+  $scope.nps = Data.nps;
 });
