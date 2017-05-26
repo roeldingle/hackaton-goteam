@@ -53,12 +53,19 @@
      		<div class="form">
      			<ons-list-header>Input form</ons-list-header>
      			<ons-list-item>
+					 <ons-row>
+				      <ons-col>Receiver: {{ selectedDay }}</ons-col>
+				      <ons-col align="right" ng-click="splitter.modalDisplay('dom-receiver', false, false)">
+				        <ons-button>Show List</ons-button>
+				      </ons-col>
+				    </ons-row>
+     			</ons-list-item>
+     			<ons-list-item>
 					<ons-input id="subject" modifier="underbar" placeholder="Subject" float ng-model="notification.subject" style="width:100%"></ons-input>
      			</ons-list-item>
      			<ons-list-item>
 					<ons-input id="message" modifier="underbar" placeholder="Message" float ng-model="page.lname" style="width:100%"></ons-input>
      			</ons-list-item>
-
      		</div>
 
 
@@ -105,6 +112,14 @@
 	  </ons-page>
 	</ons-template>
 	<!--end view-notif-->
+
+
+
+	<!--attendance dialog-->
+
+
+	
+	<!--end dialog-->
 
 </ons-page>
 

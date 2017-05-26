@@ -1,5 +1,5 @@
 <!--attendance-->
-<ons-page id="attendance.html" ng-controller="attendanceController">
+<ons-page id="attendance.html" ng-controller="revenueController">
 <ons-toolbar>
   <div class="left">
     <ons-toolbar-button ng-click="mySplitter.left.open()">
@@ -7,18 +7,18 @@
     </ons-toolbar-button>
   </div>
   <div class="center">
-    Attendance
+    Revenue
   </div>
 </ons-toolbar>
 <div>
 
 	<!--attendance-->
-    <ons-list-item   ng-repeat="attend in attendance track by $index" tappable>
+    <ons-list-item   ng-repeat="rev in revenue track by $index" tappable>
 	  <div class="left">
       	<ons-input type="checkbox" id="check-1" checked="checked" ></ons-input>
       </div>
-      <div class="center" ng-click="splitter.viewDetail('view-attendance', attendance[$index])">
-        <span class="list-item__title">{{attend.date}}</span><span class="list-item__subtitle">{{attend.status}}</span>
+      <div class="center" ng-click="splitter.viewDetail('view-revenue', revenue[$index])">
+        <span class="list-item__title">{{rev.date}}</span><span class="list-item__subtitle">{{rev.status}}</span>
       </div>
     </ons-list-item>
     <!--end attendance-->
@@ -33,31 +33,31 @@
 
 
 <!--view-notif-->
-	<ons-template id="view-attendance.html">
+	<ons-template id="view-revenue.html">
 	  <ons-page>
 	    <ons-toolbar>
 	      <div class="left">
-	        <ons-toolbar-button ng-click="splitter.load('pages/attendance.html')">
+	        <ons-toolbar-button ng-click="splitter.load('pages/revenue.html')">
 	          <ons-icon icon="fa-angle-left"></ons-icon>
 	        </ons-toolbar-button>
 	      </div>
 	      <div class="center">
-	        View Attendance
+	        Task list for {{detail.date}}
 	      </div>
 	    </ons-toolbar>
 
 	    <div style="margin: 10px;width:90%">
          	
      		<div class="form">
-     			<ons-list-item>
-					<!-- <ons-input id="username" modifier="underbar" placeholder="Title" float ng-model="detail.name" style="width:100%"></ons-input> -->
-					<h3 style="margin-right:10px;"">{{detail.date}}</h3>
-					<small style="font-size:14px">({{detail.status}})</small>
-     			</ons-list-item>
-     			<ons-list-item>
-					<!-- <ons-input id="position" modifier="underbar" placeholder="Message" ng-model="detail.position" float style="width:100%"></ons-input> -->
-					{{detail.message}}
-     			</ons-list-item>
+     			<!--task-->
+
+     			<div ng-repeat="task in detail.task track by $index" tappabl>
+     				
+					<h3 style="margin-right:3px;">{{task.title}}</h3>
+					<p>({{task.status}})</p>
+					<p>{{task.hours}} hr(s)</p>
+
+     			</div>
 
      		</div>
 

@@ -2,7 +2,7 @@ var chartOptions = {
 
 	chart: { type: 'column'},
 	title: {
-		text: ''
+		dialogReceiver: ''
 	},
 	xAxis: {
 		categories: [     
@@ -14,7 +14,7 @@ var chartOptions = {
 	yAxis: {
 		tickPositions: [0, 20, 40,  60,  80,  100],
 			title: {
-			text: ''
+			dialogReceiver: ''
 		},
 		stackLabels: {
 			enabled: true
@@ -137,3 +137,139 @@ var attendance = [
 		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
 	},
 ];
+series: [{
+		showInLegend: false,
+		name: 'Attendance',
+		data: [19, 16, 18],
+	}, {
+		showInLegend: false,
+		name: 'Revenue',
+		data: [32, 40, 38]
+	},{
+		showInLegend: false,
+		name: 'NPS',
+		data: [20, 26, 28]
+	}, {
+		showInLegend: false,
+		name: 'Dynamics',
+		data: [9,10, 8]
+	}]
+
+var revenue = [
+
+	{
+		date:"2017-05-24",
+		task: [
+			{
+			title: 'Task 1',
+			hours : 4,
+			status: 'Billed'
+			},
+			{
+			title: 'Task 2',
+			hours : 2,
+			status: 'Un-Billed'
+			},
+			{
+			title: 'Task 3',
+			hours : 2,
+			status: 'Billed'
+			},
+
+		]
+
+	},{
+		date:"2017-05-24",
+		task: [
+			{
+			title: 'Task 1',
+			hours : 4,
+			status: 'Billed'
+			},
+			{
+			title: 'Task 2',
+			hours : 2,
+			status: 'Un-Billed'
+			},
+			{
+			title: 'Task 3',
+			hours : 2,
+			status: 'Billed'
+			},
+
+		]
+
+	},
+	{
+		date:"2017-05-24",
+		task: [
+			{
+			title: 'Task 1',
+			hours : 4,
+			status: 'Billed'
+			},
+			{
+			title: 'Task 2',
+			hours : 2,
+			status: 'Un-Billed'
+			},
+			{
+			title: 'Task 3',
+			hours : 2,
+			status: 'Billed'
+			},
+
+		]
+
+	}
+	
+];
+
+
+
+
+var dialogReceiver = ''; 
+dialogReceiver += '<div id="dom-receiver" >';
+dialogReceiver += 'Select Receiver(s)';
+dialogReceiver += '<ons-list>';
+dialogReceiver += '<ons-list-item tappable>';
+dialogReceiver += '<label class="left">';
+dialogReceiver += '<ons-input type="checkbox" id="check-all" input-id="check-all" onclick="checkall()" ></ons-input>';
+dialogReceiver += '</label>';
+dialogReceiver += '<label for="check-2" class="center">';
+dialogReceiver += 'All';
+dialogReceiver += '</label>';
+dialogReceiver += '</ons-list-item>';
+dialogReceiver += '<ons-list-item tappable>';
+dialogReceiver += '<label class="left">';
+dialogReceiver += '<ons-input type="checkbox" class="checkbox-input" input-id="check-2"></ons-input>';
+dialogReceiver += '</label>';
+dialogReceiver += '<label for="check-2" class="center">';
+dialogReceiver += 'Koo Vergara';
+dialogReceiver += '</label>';
+dialogReceiver += '</ons-list-item>';
+dialogReceiver += '<ons-list-item tappable>';
+dialogReceiver += '<label class="left">';
+dialogReceiver += '<ons-input type="checkbox" class="checkbox-input" input-id="check-2"></ons-input>';
+dialogReceiver += '</label>';
+dialogReceiver += '<label for="check-2" class="center">';
+dialogReceiver += 'Aerol Salcedo';
+dialogReceiver += '</label>';
+dialogReceiver += '</ons-list-item>';
+dialogReceiver += '<ons-list-item tappable>';
+dialogReceiver += '<label class="left">';
+dialogReceiver += '<ons-input type="checkbox" class="checkbox-input" input-id="check-2"></ons-input>';
+dialogReceiver += '</label>';
+dialogReceiver += '<label for="check-2" class="center">';
+dialogReceiver += 'Roy Niepes';
+dialogReceiver += '</label>';
+dialogReceiver += '</ons-list-item>';
+dialogReceiver += '<ons-list-item tappable>';
+dialogReceiver += '<label class="left">';
+dialogReceiver += '<ons-input type="checkbox" class="checkbox-input" input-id="check-2"></ons-input>';
+dialogReceiver += '</label>';
+dialogReceiver += '<label for="check-2" class="center">';
+dialogReceiver += 'Fritz Roca';
+dialogReceiver += '</label>';
+dialogReceiver += '</ons-list-item>';
+dialogReceiver += '</ons-list>';

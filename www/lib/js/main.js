@@ -1,5 +1,16 @@
 "use strict";
 
+function checkall(){
+ // $('.checkbox-input').checked();
+  $('.checkbox-input').attr('checked', 'checked');
+  // var status = $('#check-all').is(":checked") ? true : false;
+
+  // console.log($('#check-all'));
+
+  // console.log(status);
+  // $('.checkbox-input').attr('checked', status);
+}
+
 var goteam = angular.module("goteam",['onsen.directives']);
 
 goteam.factory ('Data', function(){
@@ -8,6 +19,7 @@ goteam.factory ('Data', function(){
     $data.team = team;
     $data.notification = notification;
     $data.attendance = attendance;
+    $data.revenue = revenue;
     $data.theme = 'dark';
     return $data;
 });
@@ -43,6 +55,8 @@ goteam.controller('SplitterController', function($scope, Data) {
     /*global page viewing*/
     this.viewDetail = function(page, data){
       this.load(page+'.html');
+
+      console.log(data);
       $scope.detail = data;
     }
 
@@ -53,7 +67,14 @@ goteam.controller('SplitterController', function($scope, Data) {
     this.modalDisplay = function(text, confirm, refresh){
       
       alertDialog.show();
-      $('.alert-dialog-content').html(text);
+
+      if(text == 'dom-receiver'){
+        var text = dialogReceiver; 
+        $('.alert-dialog-content').html(text);
+      }else{
+        $('.alert-dialog-content').html(text);
+      }
+      
 
       $('.alert-btn-confirm').hide();
       if(confirm){
@@ -99,5 +120,10 @@ goteam.controller("notificationController", function($scope, $http, Data) {
 
 goteam.controller("attendanceController", function($scope, $http, Data) {
   $scope.attendance = Data.attendance;
+  console.log($scope.attendance);
+});
+
+goteam.controller("revenueController", function($scope, $http, Data) {
+  $scope.revenue = Data.revenue;
   console.log($scope.attendance);
 });
