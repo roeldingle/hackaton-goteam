@@ -7,9 +7,7 @@ function checkall(){
 
 function cloneTask(){
   $('#task-container').append('<ons-card>'+$('ons-card').html()+'</ons-card>');
-
 }
-
 
 
 var goteam = angular.module("goteam",['onsen.directives']);
@@ -96,28 +94,15 @@ goteam.controller('SplitterController', function($scope, Data) {
 });
 
 goteam.controller('loginCtrl', function($scope) {
-
-
-
     $scope.openProtectedPage = function() {
-
       splitter.load('pages/main.html')
-
-        // var options = {
-        //   animation: 'slide', // What animation to use
-        // };
-        // setTimeout(function() {
-        //     myNavigator.pushPage('pages/main.html',options);    
-        // }, 1000);
     }  
 });
 
 goteam.controller("dashboardController", function($scope, Data) {
-
-        this.changeChart = function(type){
-            alert(type);
-        }
-
+    this.changeChart = function(type){
+        alert(type);
+    }
 });
 
 goteam.controller("myTeamController", function($scope, $http, Data) {
@@ -129,12 +114,10 @@ goteam.controller("notificationController", function($scope, $http, Data) {
 
 goteam.controller("attendanceController", function($scope, $http, Data) {
   $scope.attendance = Data.attendance;
-  console.log($scope.attendance);
 });
 
 goteam.controller("revenueController", function($scope, $http, Data) {
   $scope.revenue = Data.revenue;
-  console.log($scope.attendance);
 });
 
 goteam.controller("npsController", function($scope, $http, Data) {
