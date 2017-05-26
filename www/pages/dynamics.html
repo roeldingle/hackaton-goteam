@@ -1,0 +1,52 @@
+<!--dynamics-->
+<ons-page id="dynamics.html" ng-controller="dynamicsController">
+<ons-toolbar>
+  <div class="left">
+    <ons-toolbar-button ng-click="mySplitter.left.open()">
+      <ons-icon icon="md-menu"></ons-icon>
+    </ons-toolbar-button>
+  </div>
+  <div class="center">
+    Dynamics
+  </div>
+</ons-toolbar>
+<div>
+
+	<!--attendance-->
+    <ons-list-item   ng-repeat="dyna in dynamics track by $index" tappable>
+	  
+      <div class="center" >
+        <span class="list-item__title">{{dyna.date}}</span><span class="list-item__subtitle">Personal score: {{dyna.score}}</span>
+      </div>
+    </ons-list-item>
+    <!--end attendance-->
+
+</div>
+<ons-fab position="bottom right" ng-click="dynamicsDialog.show()"><!--here-->
+  <ons-icon icon="md-plus"></ons-icon>
+</ons-fab>
+
+
+
+
+<!--attendance dialog-->
+	<ons-alert-dialog var="dynamicsDialog" >
+		<div class="alert-dialog-content">
+			Your personal rate (Team Dynamics) of the day?
+			<ons-list>
+			    <ons-list-item tappable>
+			      <ons-input  modifier="underbar" placeholder="Rate"></ons-input>
+			    </ons-list-item>
+			  </ons-list>
+		</div>
+		<div class="alert-dialog-footer" style="margin: 10px 0 20px;text-align: right;">
+			<ons-button ng-click="dynamicsDialog.hide()" >
+                    Submit
+                </ons-button>
+                </div>
+	</ons-alert-dialog>
+	<!--end dialog-->
+
+</ons-page>
+
+	<!--end attendance-->

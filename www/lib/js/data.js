@@ -230,6 +230,53 @@ var nps = [
 ];
 
 
+var dynamics = [
+
+	{
+		date:"2017-05-24",
+		score: 10,
+		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
+	},
+	{
+		date:"2017-05-23",
+		score: 8,
+		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
+	},
+	{
+		date:"2017-05-22",
+		score: 8.5,
+		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
+	},
+	{
+		date:"2017-05-21",
+		score: 9,
+		message:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo sit amet ligula egestas euismod. Ut odio tellus, facilisis ac convallis eu, fringilla sed felis. Sed massa felis, dignissim ac ligula ac, suscipit fringilla tortor. Aliquam blandit porta lacus, et varius odio venenatis vitae. Aenean bibendum non enim eu pulvinar"
+	}
+	
+];
+
+
+var metrics = [
+
+	{
+		name:"Attendance",
+		score:"4.6"
+	},
+	{
+		name:"Revenue",
+		score:"4.2"
+	},
+	{
+		name:"NPS",
+		score:"3.8"
+	},
+	{
+		name:"Team Dynamics",
+		score:"3.9"
+	}
+];
+
+
 
 
 var dialogReceiver = ''; 

@@ -1,0 +1,65 @@
+<!--attendance-->
+<ons-page id="metrics-settings.html" ng-controller="metricsController">
+<ons-toolbar>
+  <div class="left">
+    <ons-toolbar-button ng-click="mySplitter.left.open()">
+      <ons-icon icon="md-menu"></ons-icon>
+    </ons-toolbar-button>
+  </div>
+  <div class="center">
+    Metric Settings
+  </div>
+</ons-toolbar>
+<div>
+
+	<!--attendance-->
+	<ons-list-header>Metric</ons-list-header>
+    <ons-list-item   ng-repeat="metric in metrics track by $index" tappable>
+	  
+      <div class="center" ng-click="splitter.viewDetail('view-metric',metric[$index])">
+        <span class="list-item__title">{{metric.name}}</span><span class="list-item__subtitle"></span>
+      </div>
+    </ons-list-item>
+    <!--end attendance-->
+
+</div>
+
+
+<!--view-team-->
+  <ons-template id="view-metric.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button ng-click="splitter.load('pages/metrics-settings.html')">
+            <ons-icon icon="fa-angle-left"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          {{detail.name}}
+        </div>
+      </ons-toolbar>
+
+      <div style="margin: 10px;width:90%">
+          
+        <div class="form">
+          <ons-list-item>
+            Details here to set
+          </ons-list-item>
+        </div>
+
+
+        <ons-fab position="bottom right" ng-click="splitter.modalDisplay('Edit member successfully', false, false)">
+          <ons-icon icon="fa-floppy-o"></ons-icon>
+        </ons-fab>
+      </div>
+
+    </ons-page>
+  </ons-template>
+  <!--end view-team-->
+
+
+
+
+</ons-page>
+
+	<!--end attendance-->

@@ -22,6 +22,8 @@ goteam.factory ('Data', function(){
     $data.attendance = attendance;
     $data.revenue = revenue;
     $data.nps = nps;
+    $data.dynamics = dynamics;
+    $data.metrics = metrics;
     $data.theme = 'dark';
     return $data;
 });
@@ -137,4 +139,12 @@ goteam.controller("revenueController", function($scope, $http, Data) {
 
 goteam.controller("npsController", function($scope, $http, Data) {
   $scope.nps = Data.nps;
+});
+
+goteam.controller("dynamicsController", function($scope, $http, Data) {
+  $scope.dynamics = Data.dynamics;
+});
+
+goteam.controller("metricsController", function($scope, $http, Data) {
+  $scope.metrics = Data.metrics;
 });
