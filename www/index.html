@@ -23,6 +23,31 @@
 
   <body ng-app="goteam">
 
-  	<ons-navigator var="myNavigator" page="pages/login.html"></ons-navigator> 
+  	<!-- <ons-navigator var="myNavigator" page="pages/login.html"></ons-navigator>  -->
+
+
+<ons-page id="main.html">
+
+ <!--drawer  navigation-->
+  <ons-splitter  var="mySplitter" ng-controller="SplitterController as splitter">
+    <ons-splitter-content page="pages/login.html"></ons-splitter-content>
+  </ons-splitter>
+  <!--end drawer  navigation-->
+  
+
+  <!--dialog-->
+  <ons-alert-dialog var="alertDialog" direction="up">
+    <div class="alert-dialog-content">
+    </div>
+    <div class="alert-dialog-footer">
+      <button class="alert-dialog-button" ng-click="alertDialog.hide()">CLOSE</button>
+      <button class="alert-btn-confirm alert-dialog-button" style="display:none" ng-click="alertDialog.hide()" >YES</button>
+      <button class="alert-btn-confirm-refresh alert-dialog-button" style="display:none" onclick="location.reload();" >YES</button>
+    </div>
+  </ons-alert-dialog>
+  <!--end dialog-->
+</ons-page>
+
+
   </body>
 </html>

@@ -18,7 +18,7 @@
       	<ons-input type="checkbox" id="check-1" checked="checked" ></ons-input>
       </div>
       <div class="center" ng-click="splitter.viewDetail('view-revenue', revenue[$index])">
-        <span class="list-item__title">{{rev.date}}</span><span class="list-item__subtitle">{{rev.status}}</span>
+        <span class="list-item__title">{{rev.date}}</span><span class="list-item__subtitle">Logged hours : 8hrs</span>
       </div>
     </ons-list-item>
     <!--end attendance-->
@@ -51,13 +51,18 @@
      		<div class="form">
      			<!--task-->
 
-     			<div ng-repeat="task in detail.task track by $index" tappabl>
-     				
-					<h3 style="margin-right:3px;">{{task.title}}</h3>
-					<p>({{task.status}})</p>
-					<p>{{task.hours}} hr(s)</p>
+     			<!--notification-->
+			    <ons-list-item ng-repeat="task in detail.task track by $index"  tappable>
+				  
+			      <div class="center" >
+			        <span class="list-item__title">{{task.title}}</span><span class="list-item__subtitle">{{task.status}}</span>
+			      </div>
+			      <div class="right">
+			        {{task.hours}} hr(s)
+			      </div>
+			    </ons-list-item>
+			    <!--end notification-->
 
-     			</div>
 
      		</div>
 

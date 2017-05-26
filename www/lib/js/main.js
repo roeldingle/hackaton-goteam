@@ -93,13 +93,18 @@ goteam.controller('SplitterController', function($scope, Data) {
 
 goteam.controller('loginCtrl', function($scope) {
 
+
+
     $scope.openProtectedPage = function() {
-        var options = {
-          animation: 'slide', // What animation to use
-        };
-        setTimeout(function() {
-            myNavigator.pushPage('pages/main.html',options);    
-        }, 1000);
+
+      splitter.load('pages/main.html')
+
+        // var options = {
+        //   animation: 'slide', // What animation to use
+        // };
+        // setTimeout(function() {
+        //     myNavigator.pushPage('pages/main.html',options);    
+        // }, 1000);
     }  
 });
 
