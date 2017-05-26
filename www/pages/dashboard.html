@@ -1,0 +1,53 @@
+<!--dashboard-->
+<ons-page d="dashboard.html" ng-controller="dashboardController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-toolbar-button ng-click="mySplitter.left.open()">
+				<ons-icon icon="md-menu"></ons-icon>
+			</ons-toolbar-button>
+		</div>
+		<div class="center">
+		Dashboard
+		</div>
+	</ons-toolbar>
+	<div style="text-align:center">
+		<h1 style="margin: 30px 0">Today 86%</h1>
+		<img style="width:90%;height:220px" ng-src="{{chart_type == 'bar' ? 'images/bargraph.png' : 'images/piegraph.png'}}"/>
+
+		<div style="margin:10%;"">
+			<ons-button style="width:44%;margin:5px">Attendance</ons-button>
+			<ons-button style="width:44%;margin:5px">Revenue</ons-button>
+			<ons-button style="width:44%;margin:5px">NPS</ons-button>
+			<ons-button style="width:44%;margin:5px">Dynamics</ons-button>
+		</div>
+	</div>
+	
+	<!--speed dial-->
+	<ons-speed-dial position="bottom right" direction="up">
+		<ons-fab>
+			<ons-icon icon="fa-ellipsis-v"></ons-icon>
+		</ons-fab>
+		<ons-speed-dial-item>
+			<ons-icon icon="fa-pie-chart" ng-click="splitter.changeChart('pie')"></ons-icon>
+		</ons-speed-dial-item>
+		<ons-speed-dial-item>
+			<ons-icon icon="fa-bar-chart" ng-click="splitter.changeChart('bar')"></ons-icon>
+		</ons-speed-dial-item>
+		<ons-speed-dial-item>
+			<ons-icon icon="fa-calendar" ng-click="dateModal.show()"></ons-icon>
+		</ons-speed-dial-item>
+	</ons-speed-dial>
+	<!--end speed dial-->
+
+
+	<!--saved successfully-->
+	<ons-modal var="dateModal" direction="up">
+		<div>
+		    <img src="images/calendar.png" ng-click="dateModal.hide()">
+		</div>
+	</ons-modal>
+	<!--end saved successfully-->
+
+
+</ons-page>
+	<!--end dashboard-->

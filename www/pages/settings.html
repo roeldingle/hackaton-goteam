@@ -1,0 +1,65 @@
+<!--settings-->
+  <ons-page id="settings.html">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button ng-click="mySplitter.left.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Settings
+      </div>
+    </ons-toolbar>
+
+    <style ng-if="theme == false">
+		.page, .page__content, ons-list-header, ons-list-item {
+		  background-color: #000 !important;
+		  background: #000 !important;
+		  color:#fff !important;
+		}
+	</style>
+
+	
+	<ons-list ng-init="theme = true; evenCooler = true; amazing = false">
+	    <ons-list-header>Change Password</ons-list-header>
+	    <ons-list-item>
+	
+	        <ons-input id="password" modifier="underbar" placeholder="Password" type="password" float ng-model="settings.password" style="width:100%"></ons-input>
+	   
+	    </ons-list-item>
+	    <ons-list-item>
+	  
+	        <ons-input id="repassword" modifier="underbar" placeholder="Re-Password" type="password" float ng-model="settings.repassword" style="width:100%"></ons-input>
+	  
+	    </ons-list-item>
+	  </ons-list>
+	
+	<div class="form">
+	  <ons-list ng-init="cool = true; evenCooler = true; amazing = false" >
+	    <ons-list-header>Preference</ons-list-header>
+	    <ons-list-item >
+	      <div class="center">
+	        Theme:
+	      </div>
+	      <div class="right">
+	        {{theme == true ? 'Day' : 'Night'}} &nbsp;&nbsp; <ons-switch ng-model="theme"></ons-switch>
+	      </div>
+	    </ons-list-item>
+	    <ons-list-item>
+	      <div class="center">
+	        Notification: 
+	      </div>
+	      <div class="right">
+	        <ons-switch ng-model="evenCooler"></ons-switch>
+	      </div>
+	    </ons-list-item>
+	  </ons-list>
+	</div>
+
+	  <ons-fab position="bottom right" ng-click="splitter.modalDisplay('Settings saved successfully', false, false)">
+      <ons-icon icon="fa-floppy-o"></ons-icon>
+    </ons-fab>
+
+
+  </ons-page>
+<!--end settings-->

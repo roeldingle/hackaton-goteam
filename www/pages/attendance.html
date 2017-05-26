@@ -1,0 +1,111 @@
+<!--attendance-->
+<ons-page id="attendance.html" ng-controller="attendanceController">
+<ons-toolbar>
+  <div class="left">
+    <ons-toolbar-button ng-click="mySplitter.left.open()">
+      <ons-icon icon="md-menu"></ons-icon>
+    </ons-toolbar-button>
+  </div>
+  <div class="center">
+    Attendance
+  </div>
+</ons-toolbar>
+<div>
+
+	<!--attendance-->
+    <ons-list-item   ng-repeat="attend in attendance track by $index" tappable>
+	  <div class="left">
+      	<ons-input type="checkbox" id="check-1" checked="checked" ></ons-input>
+      </div>
+      <div class="center" ng-click="splitter.viewDetail('view-attendance', attendance[$index])">
+        <span class="list-item__title">{{attend.date}}</span><span class="list-item__subtitle">{{attend.status}}</span>
+      </div>
+    </ons-list-item>
+    <!--end attendance-->
+
+</div>
+<ons-fab position="bottom right" ng-click="attendanceDialog.show()"><!--here-->
+  <ons-icon icon="md-plus"></ons-icon>
+</ons-fab>
+<ons-fab position="bottom right" style="right: 80px;" ng-click="splitter.modalDisplay('Are you sure you want to remove selected items?', true, false)">
+  <ons-icon icon="fa-trash"></ons-icon>
+</ons-fab>
+
+
+<!--view-notif-->
+	<ons-template id="view-attendance.html">
+	  <ons-page>
+	    <ons-toolbar>
+	      <div class="left">
+	        <ons-toolbar-button ng-click="splitter.load('pages/attendance.html')">
+	          <ons-icon icon="fa-angle-left"></ons-icon>
+	        </ons-toolbar-button>
+	      </div>
+	      <div class="center">
+	        View Attendance
+	      </div>
+	    </ons-toolbar>
+
+	    <div style="margin: 10px;width:90%">
+         	
+     		<div class="form">
+     			<ons-list-item>
+					<!-- <ons-input id="username" modifier="underbar" placeholder="Title" float ng-model="detail.name" style="width:100%"></ons-input> -->
+					<h3 style="margin-right:10px;"">{{detail.date}}</h3>
+					<small style="font-size:14px">({{detail.status}})</small>
+     			</ons-list-item>
+     			<ons-list-item>
+					<!-- <ons-input id="position" modifier="underbar" placeholder="Message" ng-model="detail.position" float style="width:100%"></ons-input> -->
+					{{detail.message}}
+     			</ons-list-item>
+
+     		</div>
+
+		  </div>
+
+	  </ons-page>
+	</ons-template>
+	<!--end view-notif-->
+
+
+<!--attendance dialog-->
+	<ons-alert-dialog var="attendanceDialog" >
+		<div class="alert-dialog-content">
+			Reported on time today?
+			<ons-list>
+			    <ons-list-item tappable>
+			      <label class="left">
+			        <ons-input name="color" type="radio" input-id="radio-1"  value="yes"></ons-input>
+			      </label>
+			      <label for="radio-1" class="center">
+			        Yes
+			      </label>
+			    </ons-list-item>
+			    <ons-list-item tappable>
+			      <label class="left">
+			        <ons-input name="color" type="radio" input-id="radio-1"  value="no"></ons-input>
+			      </label>
+			      <label for="radio-1" class="center">
+			        No
+			      </label>
+			    </ons-list-item>
+			    <ons-list-item tappable>
+			      <label class="left">
+			        <ons-input name="color" type="radio" input-id="radio-2"  value="onleave"></ons-input>
+			      </label>
+			      <label for="radio-2" class="center">
+			        On-leave
+			      </label>
+			    </ons-list-item>
+			  </ons-list>
+		</div>
+		<div class="alert-dialog-footer" style="margin: 10px 0 20px;text-align: right;">
+			<ons-button ng-click="attendanceDialog.hide()" >
+                    Submit
+                </ons-button>
+	</ons-alert-dialog>
+	<!--end dialog-->
+
+</ons-page>
+
+	<!--end attendance-->

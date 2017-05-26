@@ -1,3 +1,5 @@
+"use strict";
+
 var goteam = angular.module("goteam",['onsen.directives']);
 
 goteam.factory ('Data', function(){
@@ -14,7 +16,6 @@ goteam.controller('SplitterController', function($scope, Data) {
     $scope.member = [];  
     $scope.user = []; 
     $scope.theme = Data.theme;
-    $scope.attendance = Data.attendance;
     $scope.chart_type = Data.chart_type;
     $scope.dialogMessage = '';
 
@@ -90,12 +91,13 @@ goteam.controller("dashboardController", function($scope, Data) {
 });
 
 goteam.controller("myTeamController", function($scope, $http, Data) {
+  $scope.team = Data.team;
+});
+goteam.controller("notificationController", function($scope, $http, Data) {
+  $scope.notification = Data.notification;
+});
 
-    $scope.team = Data.team;
-
-  });
-  goteam.controller("notificationController", function($scope, $http, Data) {
-
-    $scope.notification = Data.notification;
-
-  });
+goteam.controller("attendanceController", function($scope, $http, Data) {
+  $scope.attendance = Data.attendance;
+  console.log($scope.attendance);
+});

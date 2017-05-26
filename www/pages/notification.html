@@ -1,0 +1,111 @@
+<!--notification-->
+<ons-page id="notification.html" ng-controller="notificationController">
+<ons-toolbar>
+  <div class="left">
+    <ons-toolbar-button ng-click="mySplitter.left.open()">
+      <ons-icon icon="md-menu"></ons-icon>
+    </ons-toolbar-button>
+  </div>
+  <div class="center">
+    Notification
+  </div>
+</ons-toolbar>
+<div>
+
+	<!--notification-->
+    <ons-list-item   ng-repeat="notif in notification track by $index" tappable>
+	  <div class="left">
+      	<ons-input type="checkbox" id="check-1" checked="checked" ></ons-input>
+      </div>
+      <div class="center" ng-click="splitter.viewDetail('view-notif', notification[$index])">
+        <span class="list-item__title">{{notif.title}}</span><span class="list-item__subtitle">{{notif.date}}</span>
+      </div>
+    </ons-list-item>
+    <!--end notification-->
+
+</div>
+<ons-fab position="bottom right" ng-click="splitter.load('add-notif.html')">
+  <ons-icon icon="md-plus"></ons-icon>
+</ons-fab>
+<ons-fab position="bottom right" style="right: 80px;" ng-click="splitter.modalDisplay('Are you sure you want to remove selected items?', true, false)">
+  <ons-icon icon="fa-trash"></ons-icon>
+</ons-fab>
+
+
+
+
+<!--add-notif-->
+	<ons-template id="add-notif.html">
+	  <ons-page>
+	    <ons-toolbar>
+	      <div class="left">
+	        <ons-toolbar-button ng-click="splitter.load('pages/notification.html')">
+	          <ons-icon icon="fa-angle-left"></ons-icon>
+	        </ons-toolbar-button>
+	      </div>
+	      <div class="center">
+	        Add Notification
+	      </div>
+	    </ons-toolbar>
+
+         <div style="margin: 10px;width:90%">
+         	
+     		<div class="form">
+     			<ons-list-header>Input form</ons-list-header>
+     			<ons-list-item>
+					<ons-input id="subject" modifier="underbar" placeholder="Subject" float ng-model="notification.subject" style="width:100%"></ons-input>
+     			</ons-list-item>
+     			<ons-list-item>
+					<ons-input id="message" modifier="underbar" placeholder="Message" float ng-model="page.lname" style="width:100%"></ons-input>
+     			</ons-list-item>
+
+     		</div>
+
+
+		    <ons-fab position="bottom right" ng-click="splitter.modalDisplay('Saved successfully', false, false)">
+		      <ons-icon icon="fa-floppy-o"></ons-icon>
+		    </ons-fab>
+		  </div>
+
+	  </ons-page>
+	</ons-template>
+	<!--end add-notif-->
+
+	<!--view-notif-->
+	<ons-template id="view-notif.html">
+	  <ons-page>
+	    <ons-toolbar>
+	      <div class="left">
+	        <ons-toolbar-button ng-click="splitter.load('pages/notification.html')">
+	          <ons-icon icon="fa-angle-left"></ons-icon>
+	        </ons-toolbar-button>
+	      </div>
+	      <div class="center">
+	        View Notification
+	      </div>
+	    </ons-toolbar>
+
+	    <div style="margin: 10px;width:90%">
+         	
+     		<div class="form">
+     			<ons-list-item>
+					<!-- <ons-input id="username" modifier="underbar" placeholder="Title" float ng-model="detail.name" style="width:100%"></ons-input> -->
+					<h3 style="margin-right:10px;"">{{detail.title}}</h3>
+					<small style="font-size:14px">({{detail.date}})</small>
+     			</ons-list-item>
+     			<ons-list-item>
+					<!-- <ons-input id="position" modifier="underbar" placeholder="Message" ng-model="detail.position" float style="width:100%"></ons-input> -->
+					{{detail.message}}
+     			</ons-list-item>
+
+     		</div>
+
+		  </div>
+
+	  </ons-page>
+	</ons-template>
+	<!--end view-notif-->
+
+</ons-page>
+
+	<!--end notification-->
