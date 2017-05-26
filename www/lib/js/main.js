@@ -1,15 +1,16 @@
 "use strict";
 
 function checkall(){
- // $('.checkbox-input').checked();
   $('.checkbox-input').attr('checked', 'checked');
-  // var status = $('#check-all').is(":checked") ? true : false;
-
-  // console.log($('#check-all'));
-
-  // console.log(status);
-  // $('.checkbox-input').attr('checked', status);
+  
 }
+
+function cloneTask(){
+  $('#task-container').append('<ons-card>'+$('ons-card').html()+'</ons-card>');
+
+}
+
+
 
 var goteam = angular.module("goteam",['onsen.directives']);
 

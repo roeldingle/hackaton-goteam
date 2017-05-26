@@ -74,11 +74,8 @@
 		<div class="alert-dialog-content">
 		Log task
 		</div>
-		<!-- <div class="alert-dialog-content">
-			Log task
-			<ons-list>
-			    <ons-list-item tappable>
-			    	<ons-card>	
+      <div id="task-container">
+					<ons-card>	
 			    	<ons-select style="width:100%">
 				    <option value="basic">Task list items</option>
 				    <option value="basic">Task list items</option>
@@ -87,27 +84,14 @@
 				    <option value="basic">Task list items</option>
 				  </ons-select>
 			    <ons-input  modifier="underbar" placeholder="hrs"></ons-input>
-
-			    <ons-icon icon="fa-plus-circle"></ons-icon>
-			    <ons-icon icon="fa-minus-circle"></ons-icon>
+				<br />
+			    <ons-icon icon="fa-plus-circle" onclick="cloneTask()"></ons-icon>
+			    <ons-icon icon="fa-minus-circle" onclick="$(this).parent().remove()"></ons-icon>
 			    </ons-card>	
-			    
-			  </ons-list>
-		</div>
- -->
-			<ons-card>	
-			    	<ons-select style="width:100%">
-				    <option value="basic">Task list items</option>
-				    <option value="basic">Task list items</option>
-				    <option value="basic">Task list items</option>
-				    <option value="basic">Task list items</option>
-				    <option value="basic">Task list items</option>
-				  </ons-select>
-			    <ons-input  modifier="underbar" placeholder="hrs"></ons-input>
 
-			    <ons-icon icon="fa-plus-circle"></ons-icon>
-			    <ons-icon icon="fa-minus-circle"></ons-icon>
-			    </ons-card>	
+
+ 			</div>
+			
 
 		<div class="alert-dialog-footer" style="margin: 10px 0 20px;text-align: right;">
 		<ons-button ng-click="revenueDialog.hide()" >
